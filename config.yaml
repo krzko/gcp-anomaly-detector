@@ -1,0 +1,11 @@
+metrics:
+  - 'custom.googleapis.com/otel/foo_connection_count'
+  - 'custom.googleapis.com/otel/foo_current_connections'  # List of metric types to monitor
+filters:
+  custom.googleapis.com/otel/foo_connection_count: 'resource.type="generic_task" AND metric.labels."environment"="dev"'
+  custom.googleapis.com/otel/foo_current_connections": 'resource.type="generic_task" AND metric.labels."environment"="dev"'  # Filters to apply when fetching metrics
+polling_time: 60  # Polling time in seconds
+project_id: foo-bar-dev-1a2b3c  # GCP Project ID
+baseline_duration: 7  # Baseline duration in days
+recent_duration: 60  # Recent metrics duration in minutes
+z_score_threshold: 3.00  # Z-score threshold for anomaly detection
